@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TaraSakayNa.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Tara! Sakay Na!" HorizontalTextAlignment="Center" TextColor="White" FontSize="25"/>
+        </Frame>
+        <SearchBar TextChanged="SearchBar_textChanged" x:Name="searchCode" Placeholder="search" CancelButtonColor="#2196F3" PlaceholderColor="Beige"/>
+        <CollectionView x:Name="Jlist" ItemsSource="{Binding JeepneyCodes}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10"
+                  RowDefinitions="Auto, *"
+                  ColumnDefinitions="Auto, *">
+                        <Image Grid.RowSpan="2"
+                       Source="{Binding ImageUrl}"
+                       Aspect="AspectFill"
+                       HeightRequest="60"
+                       WidthRequest="60" />
+                        <Label Grid.Column="1"
+                       Text="{Binding Jcode}"
+                       FontAttributes="Bold" />
+                        <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="{Binding Route}"
+                       VerticalOptions="End" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+
+</ContentPage>
